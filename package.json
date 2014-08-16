@@ -1,20 +1,21 @@
 {
-  "name": "react-brunch",
-  "version": "1.0.6",
+  "name": "react-coffee-brunch",
+  "version": "0.0.1",
   "description": "Adds React.js support to brunch.",
   "author": "Matt McCray",
   "license": "MIT",
-  "homepage": "https://github.com/darthapo/react-brunch",
+  "homepage": "https://github.com/banyan/react-coffee-brunch",
   "keywords": [
     "react",
     "brunch",
     "plugin",
     "jsx",
-    "js"
+    "js",
+    "coffeescript"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:darthapo/react-brunch.git"
+    "url": "git@github.com:banyan/react-coffee-brunch.git"
   },
   "main": "./lib/index",
   "scripts": {
@@ -23,7 +24,7 @@
   },
   "dependencies": {
     "react-tools": ">=0.9.0",
-    "jstransform": "~3.0.0"
+    "coffee-react-transform": "^0.5.0"
   },
   "devDependencies": {
     "mocha": "1.11.0",

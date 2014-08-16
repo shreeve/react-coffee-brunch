@@ -1,21 +1,20 @@
-## react-brunch
+## react-coffee-brunch
 Adds [React](http://facebook.github.io/react) support to [brunch](http://brunch.io)
-by automatically compiling `*.jsx` files.
+by automatically compiling `*.cjsx` files.
 
 ### Optional
 
-You can configure react-brunch to automatically insert a react header 
-(`/** @jsx React.DOM */`) into all `*.jsx` files. Disabled by default. 
+You can configure react-brunch to automatically insert a react header
+(`/** @cjsx React.DOM */`) into all `*.cjsx` files. Disabled by default.
 
 Example `config.coffee`:
 
 ```coffeescript
 exports.config =
   plugins:
-    react:
+    reactCoffee:
       autoIncludeCommentBlock: yes
-      harmony: yes # include some es6 transforms
-  
+
   # Usual brunch config stuf...
   files:
     javascripts:
@@ -28,15 +27,10 @@ exports.config =
 
 ### Notes
 
-react-brunch only supports compiling `*.jsx` files. It doesn't peek at `*.js` to
-see if they have the React-ify comment header. I doubt it ever will. Here's why:
-
-Any `.js` file should be browser loadable. Embedding JSX will break in any JS
-environment. Therefore, I chose to have react-brunch only pre-processes `.jsx`
-files.
+react-coffee-brunch only supports compiling `*.cjsx` files.
 
 ## Usage
-Install the plugin via npm with `npm install --save react-brunch`.
+Install the plugin via npm with `npm install --save react-coffee-brunch`.
 
 Or, do manual install:
 
@@ -47,14 +41,13 @@ Or, do manual install:
 
 ## Credit
 
-This is based on Paul Miller's [javascript-brunch](https://github.com/brunch/javascript-brunch)
-project and adjusted to compile React (.jsx) files.
+This is based on darthapo's [react-brunch](https://github.com/darthapo/react-brunch).
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Matt McCray
+Copyright (c) 2014 Kohei Hasegawa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

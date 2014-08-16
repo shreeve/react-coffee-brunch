@@ -1,32 +1,25 @@
+transform    = require 'coffee-react-transform'
+coffeescript = require 'coffee-script'
 
-visitors= require('react-tools/vendor/fbtransform/visitors')
-# transform= require('react-tools').transform
-transform= require('jstransform').transform
-
-module.exports = class ReactCompiler
+module.exports = class ReactCoffeeCompiler
   brunchPlugin: yes
   type: 'javascript'
-  extension: 'jsx'
-  pattern: /\.jsx/
+  extension: 'cjsx'
+  pattern: /\.cjsx/
 
   constructor: (@config) ->
-    @includeHeader= @config?.plugins?.react?.autoIncludeCommentBlock is yes
-    @harmony= @config?.plugins?.react?.harmony is yes
+    @includeHeader= @config?.plugins?.reactCoffee?.autoIncludeCommentBlock is yes
 
   compile: (params, callback) ->
-    source= if @includeHeader
-        "/** @jsx React.DOM */\n#{ params.data }"
+    source = if @includeHeader
+        "/** @cjsx React.DOM */\n#{ params.data }"
       else
         params.data
-    visitorList= if @harmony
-        visitors.getAllVisitors()
-      else
-        visitors.transformVisitors.react
+
     try
-      output= transform(visitorList, source).code
-    
+      transformed = coffeescript.compile transform(source)
     catch err
-      console.log "ERROR", err
+      console.log "ERROR: ", err
       return callback err.toString()
-    
-    callback null, data:output
+
+    callback null, data: transformed
