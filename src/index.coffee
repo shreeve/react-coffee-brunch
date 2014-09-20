@@ -17,7 +17,7 @@ module.exports = class ReactCoffeeCompiler
         params.data
 
     try
-      transformed = coffeescript.compile transform(source)
+      transformed = coffeescript.compile transform(source), bare: true
     catch err
       console.log "ERROR: ", err
       return callback err.toString()
